@@ -1,0 +1,21 @@
+{
+  "welcome": "Bem-vindo",
+  "home": "Início",
+  "settings": "Configurações",
+  "language": "Idioma",
+  "theme": "Tema",
+  "light": "Claro",
+  "dark": "Escuro",
+  "system": "Sistema",
+  "hello": "Olá, {{name}}!",
+  "changeLanguage": "Alterar Idioma",
+  "changeTheme": "Alterar Tema",
+  "currentLanguage": "Idioma Atual: {{language}}",
+  "currentTheme": "Tema Atual: {{theme}}",
+  "description": "Este é um boilerplate React Native com TypeScript, NativeWind e i18n",
+  "getStarted": "Começar",
+  "apiError": "Ocorreu um erro ao buscar dados",
+  "loading": "Carregando...",
+  "save": "Salvar",
+  "cancel": "Cancelar"
+}

@@ -1,0 +1,21 @@
+{
+  "welcome": "Welcome",
+  "home": "Home",
+  "settings": "Settings",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+  "hello": "Hello, {{name}}!",
+  "changeLanguage": "Change Language",
+  "changeTheme": "Change Theme",
+  "currentLanguage": "Current Language: {{language}}",
+  "currentTheme": "Current Theme: {{theme}}",
+  "description": "This is a React Native boilerplate with TypeScript, NativeWind, and i18n",
+  "getStarted": "Get Started",
+  "apiError": "An error occurred while fetching data",
+  "loading": "Loading...",
+  "save": "Save",
+  "cancel": "Cancel"
+}
