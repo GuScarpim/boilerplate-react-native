@@ -3,7 +3,6 @@ import { View, Text, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationProp } from '@/navigation/types';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
@@ -13,39 +12,37 @@ export const HomeScreen: React.FC = () => {
   try {
     const { t } = useTranslation();
     const navigation = useNavigation<NavigationProp>();
-    const colorScheme = useColorScheme();
     const { theme } = useAppStore();
-    const isDark = colorScheme === 'dark';
 
     return (
       <ScrollView
-        className="flex-1 bg-white dark:bg-gray-950"
+        className="flex-1 bg-background"
         contentContainerStyle={{ padding: 16 }}
       >
         <View className="gap-4">
           <Card>
-            <Text className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+            <Text className="text-2xl font-bold mb-2 text-foreground">
               {t('welcome')}
             </Text>
-            <Text className="text-gray-600 dark:text-gray-300">
+            <Text className="text-muted">
               {t('description')}
             </Text>
           </Card>
 
           <Card>
-            <Text className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+            <Text className="text-xl font-semibold mb-4 text-foreground">
               {t('hello', { name: 'User' })}
             </Text>
-            <Text className="text-gray-600 dark:text-gray-300">
+            <Text className="text-muted">
               {t('currentLanguage', { language: t('language') })}
             </Text>
-            <Text className="mt-2 text-gray-600 dark:text-gray-300">
+            <Text className="mt-2 text-muted">
               {t('currentTheme', { theme: theme })}
             </Text>
           </Card>
 
           <Card>
-            <Text className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+            <Text className="text-lg font-semibold mb-3 text-foreground">
               {t('changeLanguage')}
             </Text>
             <LanguageSwitcher />

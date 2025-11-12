@@ -27,14 +27,14 @@ export class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <View className="flex-1 p-5 justify-center items-center bg-white dark:bg-gray-950">
-          <Text className="text-lg font-bold mb-2.5 text-gray-900 dark:text-white">
+        <View className="flex-1 p-5 justify-center items-center bg-background">
+          <Text className="text-lg font-bold mb-2.5 text-foreground">
             Something went wrong
           </Text>
-          <Text className="text-sm text-gray-600 dark:text-gray-400 mb-5">
+          <Text className="text-sm text-muted mb-5">
             {this.state.error?.message || 'Unknown error'}
           </Text>
-          <Text className="text-xs text-gray-500 dark:text-gray-500">
+          <Text className="text-xs text-muted">
             Check the console for more details
           </Text>
         </View>

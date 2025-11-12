@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-background: 255 255 255;
+    --color-card: 255 255 255;
+    --color-foreground: 17 24 39;
+    --color-muted: 75 85 99;
+    --color-border: 229 231 235;
+    --color-primary: 239 68 68;
+    --color-primary-foreground: 255 255 255;
+    --color-secondary: 229 231 235;
+    --color-secondary-foreground: 17 24 39;
+    --color-elevated-shadow: 0 0 0 / 0.08;
+  }
+
+  .dark:root {
+    --color-background: 15 15 15;
+    --color-card: 31 31 31;
+    --color-foreground: 248 250 252;
+    --color-muted: 156 163 175;
+    --color-border: 63 63 70;
+    --color-primary: 185 28 28;
+    --color-primary-foreground: 248 250 252;
+    --color-secondary: 55 65 81;
+    --color-secondary-foreground: 248 250 252;
+    --color-elevated-shadow: 0 0 0 / 0.35;
+  }
+}

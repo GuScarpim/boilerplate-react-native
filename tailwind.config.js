@@ -2,11 +2,18 @@
 module.exports = {
   content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
   presets: [require('nativewind/preset')],
+  darkMode: ['class', 'dark'],
   theme: {
     extend: {
       colors: {
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
+        card: 'rgb(var(--color-card) / <alpha-value>)',
+        muted: 'rgb(var(--color-muted) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
         primary: {
-          DEFAULT: '#EF4444',
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
           light: '#EF4444',
           dark: '#B91C1C',
           50: '#FEF2F2',
@@ -20,13 +27,9 @@ module.exports = {
           800: '#991B1B',
           900: '#7F1D1D',
         },
-        background: {
-          light: '#FFFFFF',
-          dark: '#0F0F0F',
-        },
-        header: {
-          light: '#EF4444',
-          dark: '#1F1F1F',
+        secondary: {
+          DEFAULT: 'rgb(var(--color-secondary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-secondary-foreground) / <alpha-value>)',
         },
         shadow: {
           light: 'rgba(0, 0, 0, 0.1)',

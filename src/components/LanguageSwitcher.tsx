@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppStore } from '@/store';
 
 export const LanguageSwitcher: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language, setLanguage } = useAppStore();
 
   const languages = [
@@ -25,15 +25,11 @@ export const LanguageSwitcher: React.FC = () => {
           <TouchableOpacity
             key={lang.code}
             onPress={() => handleLanguageChange(lang.code)}
-            className={`px-4 py-2 rounded-lg ${isActive
-                ? 'bg-primary-light dark:bg-primary-dark'
-                : 'bg-gray-200 dark:bg-gray-700'
+            className={`px-4 py-2 rounded-lg ${isActive ? 'bg-primary' : 'bg-secondary'
               }`}
           >
             <Text
-              className={`font-medium ${isActive
-                  ? 'text-white'
-                  : 'text-gray-700 dark:text-gray-300'
+              className={`font-medium ${isActive ? 'text-primary-foreground' : 'text-secondary-foreground'
                 }`}
             >
               {lang.label}
@@ -44,4 +40,3 @@ export const LanguageSwitcher: React.FC = () => {
     </View>
   );
 };
-

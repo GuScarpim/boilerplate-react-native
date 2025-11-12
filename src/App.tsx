@@ -9,13 +9,14 @@ import { useAppStore } from './store';
 import '@/i18n';
 import { useColorScheme } from './hooks/useColorScheme';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { colorScheme as nativewindColorScheme } from 'nativewind';
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const { language } = useAppStore();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
-
+  const appearance = isDark ? 'dark' : 'light';
   useEffect(() => {
     // Wait a bit for Zustand persist to hydrate
     const timer = setTimeout(() => {
@@ -35,10 +36,14 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [language]);
 
+  useEffect(() => {
+    nativewindColorScheme.set(appearance);
+  }, [appearance]);
+
   if (!isReady) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' }}>
-        <Text style={{ color: '#000000' }}>Loading...</Text>
+      <View className="flex-1 items-center justify-center bg-background">
+        <Text className="text-foreground">Loading...</Text>
       </View>
     );
   }
@@ -47,7 +52,7 @@ export default function App() {
     <ErrorBoundary>
       <GestureHandlerRootView>
         <SafeAreaProvider>
-          <View style={{ flex: 1, backgroundColor: '#FFFFFF' }} className="flex-1 bg-white dark:bg-gray-950">
+          <View className="flex-1 bg-background">
             <StatusBar style={isDark ? 'light' : 'dark'} />
             <AppRoutes />
           </View>

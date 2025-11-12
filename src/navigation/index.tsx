@@ -5,15 +5,14 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { RootStackParamList } from './types';
 import { HomeScreen } from '@/screens/HomeScreen';
 import { SettingsScreen } from '@/screens/SettingsScreen';
-import { useAppStore } from '@/store';
-import { colors } from '@/theme/colors';
+import { getThemeColors } from '@/theme/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const AppRoutes: React.FC = () => {
   const colorScheme = useColorScheme();
-  const { theme } = useAppStore();
   const isDark = colorScheme === 'dark';
+  const palette = getThemeColors(isDark ? 'dark' : 'light');
 
   const navigationTheme = isDark ? DarkTheme : DefaultTheme;
 
@@ -23,15 +22,15 @@ export const AppRoutes: React.FC = () => {
         initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: isDark ? colors.header.dark : colors.header.light,
+            backgroundColor: palette.header,
           },
-          headerTintColor: colors.text.white,
+          headerTintColor: palette.text.primary,
           headerTitleStyle: {
             fontWeight: 'bold',
-            color: colors.text.white,
+            color: palette.text.primary,
           },
           contentStyle: {
-            backgroundColor: isDark ? colors.background.dark : colors.background.light,
+            backgroundColor: palette.background,
           },
         }}
       >

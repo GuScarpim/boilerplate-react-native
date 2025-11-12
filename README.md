@@ -16,44 +16,61 @@ A complete React Native boilerplate with TypeScript, NativeWind, i18n, Zustand, 
 ## 📁 Project Structure
 
 ```
-src/
-├── api/
-│   ├── client.ts          # Axios instance with interceptors
-│   └── endpoints.ts       # API endpoint constants
-├── components/
-│   ├── LanguageSwitcher.tsx
-│   └── ui/
-│       ├── Button.tsx     # Button component with variants
-│       └── Card.tsx       # Card component
-├── hooks/
-│   ├── useColorScheme.ts  # Custom color scheme hook
-│   └── useDebounce.ts     # Debounce hook
-├── i18n/
-│   ├── detector.ts        # Language detector
-│   ├── index.ts           # i18n configuration
-│   ├── types.d.ts         # TypeScript types
-│   └── resources/
-│       ├── en/common.json
-│       └── pt-BR/common.json
-├── navigation/
-│   ├── index.tsx          # Navigation setup
-│   └── types.ts           # Navigation types
-├── screens/
-│   ├── HomeScreen.tsx
-│   └── SettingsScreen.tsx
-├── store/
-│   ├── app.store.ts       # Zustand store
-│   └── index.ts
-├── theme/
-│   ├── tailwind.config.js
-│   └── nativewind-env.d.ts
-├── utils/
-│   ├── dates.ts           # Date formatting utilities
-│   └── format.ts          # Number/currency formatting
-├── types/
-│   └── global.d.ts        # Global type definitions
-└── App.tsx                # Main app component
+.
+├── assets/                  # Static assets: fonts, icons, images
+├── global.css               # NativeWind global styles
+├── index.js                 # Expo entry file
+├── src/
+│   ├── App.tsx              # Main app component
+│   ├── api/
+│   │   ├── client.ts        # Axios instance with interceptors
+│   │   └── endpoints.ts     # API endpoint constants
+│   ├── components/
+│   │   ├── ErrorBoundary.tsx
+│   │   ├── LanguageSwitcher.tsx
+│   │   └── ui/
+│   │       ├── Button.tsx   # Button component with variants and loading state
+│   │       └── Card.tsx     # Card layout primitive
+│   ├── hooks/
+│   │   ├── useColorScheme.ts# Hook synced with system theme + persistence
+│   │   └── useDebounce.ts   # Debounce helper for async actions
+│   ├── i18n/
+│   │   ├── detector.ts      # Language detection strategy
+│   │   ├── index.ts         # i18n configuration
+│   │   ├── types.d.ts       # i18n typings
+│   │   └── resources/
+│   │       ├── en/common.json
+│   │       └── pt-BR/common.json
+│   ├── navigation/
+│   │   ├── index.tsx        # Root navigator with dark mode support
+│   │   └── types.ts         # Navigation type definitions
+│   ├── screens/
+│   │   ├── HomeScreen.tsx   # Example screen with theming + i18n usage
+│   │   └── SettingsScreen.tsx
+│   ├── store/
+│   │   ├── app.store.ts     # Zustand store with persistence
+│   │   └── index.ts
+│   ├── theme/
+│   │   ├── colors.ts        # Centralized palette shared with NativeWind
+│   │   └── nativewind-env.d.ts
+│   ├── types/
+│   │   └── global.d.ts      # Global TypeScript definitions
+│   └── utils/
+│       ├── dates.ts         # Date/time formatting helpers
+│       └── format.ts        # Number/currency formatting helpers
+├── tailwind.config.js       # NativeWind/Tailwind configuration
+└── tsconfig.json            # TypeScript compiler configuration
 ```
+
+## 🧰 What's Inside
+
+- **Theming-ready UI** with NativeWind v4, global style tokens, and light/dark mode out of the box.
+- **Internationalization** via react-i18next, language detector, and language switcher component.
+- **Global state** powered by Zustand with AsyncStorage persistence and theme management helpers.
+- **Navigation template** using React Navigation native stack and typed routes.
+- **API layer** with pre-configured Axios client (interceptors, error handling stub) and endpoint map.
+- **Utility suite** for date, number, and currency formatting, plus reusable hooks.
+- **Developer experience**: ESLint, Prettier, TypeScript strict mode, Jest config, and path aliases with `@/`.
 
 ## 🛠️ Setup
 

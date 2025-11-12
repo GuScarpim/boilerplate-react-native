@@ -9,7 +9,7 @@ interface CardProps extends ViewProps {
 export const Card: React.FC<CardProps> = ({ children, className = '', ...props }) => {
   return (
     <View
-      className={`rounded-xl p-4 bg-white dark:bg-gray-800 shadow-sm dark:shadow-md ${className}`}
+      className={`rounded-xl p-4 bg-card border border-border/60 shadow-sm ${className}`}
       {...props}
     >
       {children}
