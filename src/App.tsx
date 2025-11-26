@@ -10,6 +10,8 @@ import '@/i18n';
 import { useColorScheme } from './hooks/useColorScheme';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { colorScheme as nativewindColorScheme } from 'nativewind';
+import { QueryProvider } from './providers/query-provider';
+import { initDatabase } from './database/db';
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -17,7 +19,14 @@ export default function App() {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
   const appearance = isDark ? 'dark' : 'light';
+
   useEffect(() => {
+    try {
+      initDatabase();
+    } catch (error) {
+      console.error('Failed to initialize database:', error);
+    }
+
     // Wait a bit for Zustand persist to hydrate
     const timer = setTimeout(() => {
       setIsReady(true);
@@ -50,14 +59,16 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <GestureHandlerRootView>
-        <SafeAreaProvider>
-          <View className="flex-1 bg-background">
-            <StatusBar style={isDark ? 'light' : 'dark'} />
-            <AppRoutes />
-          </View>
-        </SafeAreaProvider>
-      </GestureHandlerRootView>
+      <QueryProvider>
+        <GestureHandlerRootView>
+          <SafeAreaProvider>
+            <View className="flex-1 bg-background">
+              <StatusBar style={isDark ? 'light' : 'dark'} />
+              <AppRoutes />
+            </View>
+          </SafeAreaProvider>
+        </GestureHandlerRootView>
+      </QueryProvider>
     </ErrorBoundary>
   );
 }

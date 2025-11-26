@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { RootStackParamList } from './types';
 import { HomeScreen } from '@/screens/HomeScreen';
+import { TasksScreen } from '@/screens/TasksScreen';
 import { SettingsScreen } from '@/screens/SettingsScreen';
 import { getThemeColors } from '@/theme/colors';
 
@@ -39,6 +40,13 @@ export const AppRoutes: React.FC = () => {
           component={HomeScreen}
           options={{
             title: 'Home',
+          }}
+        />
+        <Stack.Screen
+          name="Tasks"
+          component={TasksScreen}
+          options={{
+            title: 'Offline First - Tarefas',
           }}
         />
         <Stack.Screen

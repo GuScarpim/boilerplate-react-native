@@ -48,15 +48,27 @@ export const HomeScreen: React.FC = () => {
             <LanguageSwitcher />
           </Card>
 
+          <Card>
+            <Text className="text-xl font-semibold mb-3 text-foreground">
+              Offline First Demo
+            </Text>
+            <Text className="text-muted mb-4">
+              Exemplo simples e visual demonstrando offline-first com:
+              {'\n'}• SQLite para dados locais
+              {'\n'}• TanStack Query com persistência
+              {'\n'}• Fila de sincronização
+              {'\n'}• Detecção de rede
+            </Text>
+            <Button
+              title="Ver Tarefas (Offline First)"
+              onPress={() => navigation.navigate('Tasks')}
+              variant="primary"
+            />
+          </Card>
+
           <Button
             title={t('settings')}
             onPress={() => navigation.navigate('Settings')}
-            variant="primary"
-          />
-
-          <Button
-            title={t('getStarted')}
-            onPress={() => { }}
             variant="secondary"
           />
         </View>
