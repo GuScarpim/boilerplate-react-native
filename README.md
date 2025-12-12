@@ -235,14 +235,6 @@ All required dependencies are already installed:
 - `@react-navigation/native` & `@react-navigation/native-stack` - Navigation
 - `@react-native-async-storage/async-storage` - Storage
 
-## 🎯 Next Steps
-
-1. Customize the theme colors in `tailwind.config.js`
-2. Add more screens in `src/screens/`
-3. Configure API endpoints in `src/api/endpoints.ts`
-4. Add more translations in `src/i18n/resources/`
-5. Extend the Zustand store with more state
-
 ## 📄 License
 
 MIT
