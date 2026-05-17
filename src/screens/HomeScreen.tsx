@@ -9,11 +9,11 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useAppStore } from '@/store';
 
 export const HomeScreen: React.FC = () => {
-  try {
-    const { t } = useTranslation();
-    const navigation = useNavigation<NavigationProp>();
-    const { theme } = useAppStore();
+  const { t } = useTranslation();
+  const navigation = useNavigation<NavigationProp>();
+  const { theme } = useAppStore();
 
+  try {
     return (
       <ScrollView
         className="flex-1 bg-background"
